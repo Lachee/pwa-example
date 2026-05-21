@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/web-bluetooth": "^0.0.21",
     "http-server": "^14.1.1"
   }
 }
