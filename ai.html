@@ -1863,7 +1863,10 @@
             try {
                 statusDiv.innerText = "Searching for devices...";
                 bleDevice = await navigator.bluetooth.requestDevice({
-                    acceptAllDevices: true,
+                    acceptAllDevices: false,
+                    filters: [{
+                        namePrefix: "Y"
+                    }],
                     optionalServices: OPTIONAL_SERVICES
                 });
 
