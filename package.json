@@ -1,0 +1,14 @@
+{
+  "name": "pwa-example",
+  "version": "1.0.0",
+  "description": "Used in my presentation about pwas",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server ./public -p 8080"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
