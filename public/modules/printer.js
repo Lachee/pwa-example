@@ -65,22 +65,20 @@ export async function connect(filter = true) {
         disconnect: function () {
             this.device.gatt.disconnect();
         },
-        feed: async function () {
-            // ESC @ = reset printer
-            // ESC d 3 = feed 3 lines
-            // ESC J 80 = feed 80 dots
+        feed: async function (lines = 3) {
+            const speed = 0x01;
+            const feeds = new Uint8Array(lines).fill(0x0a);
             await this.send(
                 new Uint8Array([
                     0x1b, 0x40,
-                    0x1b, 0x64, 0x03,
-                    0x0a,
-                    0x0a,
-                    0x0a,
+                    0x1b, 0x64, speed,
+                    ...feeds,
                     0x1b, 0x4a, 0x50
                 ]));
         },
-        printBitmap: async function (data, width, height, progress = undefined) {
+        printBitmap: async function (bitmap, progress = undefined) {
             // We send the ESC/POS header just ONCE for the entire image block
+            const {data, width, height} = bitmap;
             const byteWidth = width / 8; // 384 / 8 = 48
             const header = [
                 0x1d, 0x76, 0x30, 0x00,          // GS v 0 0
