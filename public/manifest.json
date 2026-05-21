@@ -13,8 +13,17 @@
       "sizes": "192x192"
     }
   ],
+  "shortcuts": [
+    {
+      "name": "Feed Printer",
+      "short_name": "Feed",
+      "description": "Feed the page",
+      "url": "index.html?utm_source=homescreen",
+      "icons": [{ "src": "/images/icon-x192.png", "sizes": "192x192" }]
+    }
+  ],
   "display": "standalone",
   "start_url": "/",
-  "theme_color": "#42b5f4",
+  "theme_color": "#0a6b24",
   "scope": "./index.html"
 }
